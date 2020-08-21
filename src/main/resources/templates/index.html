@@ -51,10 +51,10 @@
                 <tbody>
                 <tr th:each="prescription: ${prescriptionList}">
                     <td hidden>"${prescription.id}"</td>
-                    <td th:text="${prescription.prescriptionDate}" required></td>
-                    <td th:text="${prescription.patientName}" required></td>
-                    <td th:text="${prescription.patientAge}" required></td>
-                    <td th:text="${prescription.medicine}" required></td>
+                    <td th:text="${prescription.prescriptionDate}"></td>
+                    <td th:text="${prescription.patientName}"></td>
+                    <td th:text="${prescription.patientAge}"></td>
+                    <td th:text="${prescription.medicine}"></td>
                     <td th:text="${prescription.diagnosis}"></td>
                     <td th:text="${prescription.nextVisitDate}"></td>
                     <td><a class="btn btn-info" th:href="@{'/prescription/'+ ${prescription.id}}">Edit</a></td>

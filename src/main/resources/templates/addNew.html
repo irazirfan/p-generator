@@ -40,33 +40,33 @@
                     <form action="#" th:action="@{/save}" th:object="${prescription}" method="post">
                         <div class="form-group">
                             <label>Prescription Date</label>
-                            <input type="date" min="2020-01-01" max="2025-12-31" class="form-control" th:field="${prescription.prescriptionDate}">
+                            <input type="date" min="2020-01-01" max="2025-12-31" class="form-control" th:required="required" th:field="${prescription.prescriptionDate}">
                         </div>
                         <div class="form-group">
                             <label>Patient Name</label>
-                            <input type="text" class="form-control" th:field="${prescription.patientName}">
+                            <input type="text" class="form-control" th:required="required" th:field="${prescription.patientName}" placeholder="Patient Name">
                         </div>
                         <div class="form-group">
                             <label>Age</label>
-                            <input type="text" class="form-control" th:field="${prescription.patientAge}">
+                            <input type="number" class="form-control" th:required="required" th:field="${prescription.patientAge}" placeholder="Age">
                         </div>
                         <div class="form-group">
                             <label>Gender</label>
                             <br>
                             <input type="radio" id="male" name="gender" value="1" th:field="${prescription.patientGender}">
                             <label for="male">Male</label>
-                            <input type="radio" id="female" name="gender" value="2" th:field="${prescription.patientGender}">
+                            <input type="radio" id="female" name="gender" value="2"  th:field="${prescription.patientGender}">
                             <label for="female">Female</label>
                             <input type="radio" id="other" name="gender" value="0" th:field="${prescription.patientGender}">
                             <label for="other">Other</label>
                         </div>
                         <div class="form-group">
                             <label>Medicines</label>
-                            <input type="text" class="form-control" th:field="${prescription.medicine}">
+                            <input type="text" class="form-control" th:field="${prescription.medicine}" placeholder="Medecines(comma seperated)">
                         </div>
                         <div class="form-group">
                             <label>Diagnosis</label>
-                            <input type="text" class="form-control" th:field="${prescription.diagnosis}">
+                            <input type="text" class="form-control" th:field="${prescription.diagnosis}" placeholder="Diagnosis(comma seperated)">
                         </div>
                         <div class="form-group">
                             <label>Next Visit Date</label>
@@ -78,7 +78,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 
 </body>

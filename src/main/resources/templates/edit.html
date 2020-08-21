@@ -43,15 +43,15 @@
                     </div>
                     <div class="form-group">
                         <label>Prescription Date</label>
-                        <input type="date" min="2020-01-01" max="2025-12-31" class="form-control" th:field="${existingPrescription.prescriptionDate}">
+                        <input type="date" min="2020-01-01" max="2025-12-31" class="form-control" th:required="required" th:field="${existingPrescription.prescriptionDate}">
                     </div>
                     <div class="form-group">
                         <label>Patient Name</label>
-                        <input type="text" class="form-control" th:field="${existingPrescription.patientName}">
+                        <input type="text" class="form-control" th:required="required" th:field="${existingPrescription.patientName}">
                     </div>
                     <div class="form-group">
                         <label>Age</label>
-                        <input type="text" class="form-control" th:field="${existingPrescription.patientAge}">
+                        <input type="text" class="form-control" th:required="required" th:field="${existingPrescription.patientAge}">
                     </div>
                     <div class="form-group">
                         <label>Gender</label>
