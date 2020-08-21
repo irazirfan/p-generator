@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <title>Prescriptor</title>
+    <style>
+        body {
+        }
+        #d1 {
+            padding-top: 50px;
+        }
+        .form-group {
+            width: 60%;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Prescription List</a></li>
+                <li><a href="/api/v1/prescriptionList">Prescriptions(json)</a></li>
+                <li><a href="/addNewPrescription">Add New</a></li>
+            </ul>
+            <p class="navbar-text navbar-right"><a href="/logout" class="navbar-link">Sign Out</a></p>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div id="d1" class="form-group">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h1>Edit Prescription</h1>
+            </div>
+            <div class="panel-body">
+                <form action="#" th:action="@{/save}" th:object="${existingPrescription}" method="post">
+                    <div class="form-group">
+                        <input type="hidden" readonly class="form-control" th:field="${existingPrescription.id}">
+                    </div>
+                    <div class="form-group">
+                        <label>Prescription Date</label>
+                        <input type="date" min="2020-01-01" max="2025-12-31" class="form-control" th:field="${existingPrescription.prescriptionDate}">
+                    </div>
+                    <div class="form-group">
+                        <label>Patient Name</label>
+                        <input type="text" class="form-control" th:field="${existingPrescription.patientName}">
+                    </div>
+                    <div class="form-group">
+                        <label>Age</label>
+                        <input type="text" class="form-control" th:field="${existingPrescription.patientAge}">
+                    </div>
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <br>
+                        <input type="radio" id="male" name="gender" value="1" th:field="${existingPrescription.patientGender}">
+                        <label for="male">Male</label>
+                        <input type="radio" id="female" name="gender" value="2" th:field="${existingPrescription.patientGender}">
+                        <label for="female">Female</label>
+                        <input type="radio" id="other" name="gender" value="0" th:field="${existingPrescription.patientGender}">
+                        <label for="other">Other</label>
+                    </div>
+                    <div class="form-group">
+                        <label>Medicines</label>
+                        <input type="text" class="form-control" th:field="${existingPrescription.medicine}">
+                    </div>
+                    <div class="form-group">
+                        <label>Diagnosis</label>
+                        <input type="text" class="form-control" th:field="${existingPrescription.diagnosis}">
+                    </div>
+                    <div class="form-group">
+                        <label>Next Visit Date</label>
+                        <input type="date" min="2020-01-01" max="2026-01-31" class="form-control" th:field="${existingPrescription.nextVisitDate}">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</html>

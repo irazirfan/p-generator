@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <title>Prescriptor</title>
+    <style>
+        body {
+        }
+        #d0 {
+            padding-top: 50px;
+        }
+        .form-group {
+            width: 60%;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Prescription List</a></li>
+                <li><a href="/api/v1/prescriptionList">Prescriptions(json)</a></li>
+                <li><a href="/addNewPrescription">Add New</a></li>
+            </ul>
+            <p class="navbar-text navbar-right"><a href="/logout" class="navbar-link">Sign Out</a></p>
+        </div>
+    </div>
+</nav>
+
+<div class="container" align="center" id="d0">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h1>Prescriptions</h1>
+        </div>
+        <div class="panel-body">
+            <table class="table table-striped table-bordered">
+                <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Medicines</th>
+                    <th>Diagnosis</th>
+                    <th>Next Visit Date</th>
+                    <th colspan="2">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="prescription: ${prescriptionList}">
+                    <td hidden>"${prescription.id}"</td>
+                    <td th:text="${prescription.prescriptionDate}" required></td>
+                    <td th:text="${prescription.patientName}" required></td>
+                    <td th:text="${prescription.patientAge}" required></td>
+                    <td th:text="${prescription.medicine}" required></td>
+                    <td th:text="${prescription.diagnosis}"></td>
+                    <td th:text="${prescription.nextVisitDate}"></td>
+                    <td><a class="btn btn-info" th:href="@{'/prescription/'+ ${prescription.id}}">Edit</a></td>
+                    <td><a class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item?');" th:href="@{'/delete/'+ ${prescription.id}}">Delete</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+</body>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</html>
