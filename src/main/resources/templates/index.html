@@ -36,6 +36,7 @@
             <h1>Prescriptions</h1>
         </div>
         <div class="panel-body">
+            <input id="myInput" type="text" class="form-control" placeholder="Search">
             <table class="table table-striped table-bordered">
                 <thead>
                 <tr>
@@ -48,7 +49,7 @@
                     <th colspan="2">Action</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="myTable">
                 <tr th:each="prescription: ${prescriptionList}">
                     <td hidden>"${prescription.id}"</td>
                     <td th:text="${prescription.prescriptionDate}"></td>
@@ -71,5 +72,16 @@
 
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
 
 </html>

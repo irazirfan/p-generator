@@ -32,16 +32,4 @@ public class PrescriptionService {
         prescriptionRepository.deleteById(id);
     }
 
-//    public Prescription updatePrescription(Prescription prescription) {
-//
-//        Prescription existingPrescription = prescriptionRepository.findById(prescription.getId()).orElse(null);
-//        existingPrescription.setPrescriptionDate(prescription.getPrescriptionDate());
-//        existingPrescription.setPatientName(prescription.getPatientName());
-//        existingPrescription.setPatientAge(prescription.getPatientAge());
-//        existingPrescription.setPatientGender(prescription.getPatientGender());
-//        existingPrescription.setDiagnosis(prescription.getDiagnosis());
-//        existingPrescription.setMedicine(prescription.getMedicine());
-//        existingPrescription.setNextVisitDate(prescription.getNextVisitDate());
-//        return prescriptionRepository.save(existingPrescription);
-//    }
 }
